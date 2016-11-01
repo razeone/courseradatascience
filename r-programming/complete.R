@@ -5,7 +5,7 @@ complete <- function(directory, id = 1:332) {
     # Declare an empty frame
     resultframe <- data.frame(id = numeric(), nobs = numeric())
     for(i in id) {
-        # Path and filename i a variable
+        # Path and filename in a variable
         pathandfile <- paste(directory, "/", files[i], sep = "", collapse = NULL)
         # Working data
         rawdata <- read.csv(pathandfile, header = T)
