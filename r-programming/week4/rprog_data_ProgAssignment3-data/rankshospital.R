@@ -1,3 +1,5 @@
+# Loading best
+source("best.R")
 # We need two helper classes for dealing with names and ordering
 # there might be a better way of doing this with apply() like functions
 getTopNHospitalRankNames <- function(outcome, state_sub, num) {
@@ -38,7 +40,7 @@ rankhospital <- function(state, outcome, num = "best") {
             stop("Invalid outcome")
         }
         if(num == "best") {
-            best(state, 11)
+            return(best(state, outcome))
         }
         # State subset
         state_sub <- outcome_data[outcome_data[,7]==state,]
@@ -62,3 +64,5 @@ rankhospital <- function(state, outcome, num = "best") {
 rankhospital("TX", "heart failure", 4)
 rankhospital("MD", "heart attack", "worst")
 rankhospital("MN", "heart attack", 5000)
+# One more test to fix a bug though
+rankhospital("MD", "heart attack", "best")

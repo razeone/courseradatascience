@@ -42,9 +42,12 @@ best <- function(state, outcome) {
     }
 }
 
+# Tests
 best("TX", "heart attack")
 best("TX", "heart failure")
 best("MD", "heart attack")
 best("MD", "pneumonia")
-best("BB", "heart attack")
-best("NY", "hert attack")
+# Comment the tests that fails since make noise 
+# when loading the function.
+#best("BB", "heart attack")
+#best("NY", "hert attack")
