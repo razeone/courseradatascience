@@ -60,3 +60,15 @@ head(chicago)
 # which is the pm25 variable minus the mean.
 chicago <- mutate(chicago, pm25detrend = pm25-mean(pm25, na.rm = TRUE))
 head(select(chicago, pm25, pm25detrend))
+chicago <- mutate(chicago, tempcat = factor(1 * (tmpd > 80), labels = c("cold", "hot")))
+hotcold <- group_by(chicago, tempcat)
+hotcold
+summarize(hotcold, pm25 = mean(pm25), o3 = max(o3tmean2), no2 = median(no2tmean2))
+chicago <- mutate(chicago, year = as.POSIXlt(date)$year + 1900)
+years <- group_by(chicago, year)
+summarize(years, pm25 = mean(pm25, na.rm = TRUE), o3 = max(o3tmean2), no2 = median(no2tmean2))
+chicago %>% mutate(month = as.POSIXlt(date)$mon + 1) %>% group_by(month) %>% summarize(pm25 = mean(pm25, na.rm = TRUE), o3 = max(o3tmean2), no2 = median(no2tmean2))
+# Once you learn the "dplyr" grammar there are a few additional benefits
+# dplyr can work with other data frame "backends"
+# data.table for large fast tables
+# SQL interface for relational databases via de DBI package
