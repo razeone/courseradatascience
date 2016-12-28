@@ -19,4 +19,4 @@
 * Content is king 
 	- Analytical presentations ultimately stand or fall depending depending on the quality, relevance, and integrity of their content
 
-Bibliography: [http://www.edwardtufte.com](Edward Tufte) 2006. Beautiful Evidence, Graphics Press LLC
+Bibliography: [Edward Tufte](http://www.edwardtufte.com) 2006. Beautiful Evidence, Graphics Press LLC
